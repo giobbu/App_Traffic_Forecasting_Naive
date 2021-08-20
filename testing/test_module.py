@@ -9,6 +9,7 @@ from util import logging
 
 import streamlit as st
 import altair as alt
+from testing.util import evaluation_fct
 from testing.app_util import update_layer_deck, initial_layer_deck, plot_multistep_error, plot_line_all
 import pydeck as pdk
 
@@ -44,9 +45,10 @@ def testing(out_sqc, lst, streets, timestamp, X_tr, Y_tr, X_vl, Y_vl, X_ts, Y_ts
     chart_multi = st.empty()
 
     st.markdown("""---""")
-    st.subheader('Performance Metrics ')
+    st.subheader('RMSE and MAE Performance Metrics ')
 
     st.subheader(' Error For Each Time Horizon Separately  ')
+    st.write(' historic values (red) vs current values (black)')
 
     
     col3, col4 = st.beta_columns(2)

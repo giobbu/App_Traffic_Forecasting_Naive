@@ -38,7 +38,6 @@ checkpoint_dir = 'trained_model_dir'
 with open('config.yaml') as file:
         config = yaml.safe_load(file)
 
-
 path = config['script_path']
 mean_value = config['data']['threshold']
 n_feat_time = config['data']['time_feature']
@@ -47,13 +46,6 @@ testing_period = config['data']['testing']
 
 inp_sqc = config['loader']['input_sqc']
 out_sqc = config['loader']['output_sqc']
-aux_dim = n_feat_time
-
-
-
-
-
-
 
 def main():
 
