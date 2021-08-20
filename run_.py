@@ -65,6 +65,13 @@ def main():
         # Space out the maps so the first one is 2x the size of the other three
         with st.beta_container():
 
+                col1, col2 = st.beta_columns([20,20])
+                with col1:
+                        st.image('mlg.png', width=250)
+                with col2:
+                        st.image('ULB.jpeg', width=200)
+                        
+                st.markdown("""---""")
                 st.title('Freight Traffic Forecasting')
                 st.write('Reliable Traffic Forecasting schemes are fundamental to design Proactive Intelligent Transportation Systems (ITS).')
                 st.markdown("""---""")
@@ -72,7 +79,7 @@ def main():
                 st.header('Multi-step and Multivariate Forecasting:')
                 st.write('In the traffic forecasting literature the task of predicting the traffic condition for multiple time horizons and for multiple locations corresponds to problem of multi-step and multivariate forecasting. More references [here](https://link.springer.com/chapter/10.1007/978-3-642-36318-4_3).')
                 st.header('Naive Model:')
-                st.write('Within a sliding window, observations at the same time and same day in previous weeks seasons are collected and the mean of those observations is returned as persisted forecast.')
+                st.write('Within a sliding window, observations at the same time and same day in previous week seasons are collected and the mean of those observations is returned as persisted forecast.')
                 st.header('OBU Data:')
                 st.write('Data related to lorries travelling on Belgian public roads. In the study case here presented the data have been processed via the big data architecture at [Machine Learning Group, ULB, Bruxelles](https://mlg.ulb.ac.be/wordpress/).')
                 st.markdown("""---""")
@@ -187,7 +194,7 @@ def main():
 
                 elif st.button('Naive Inference'):
 
-                        st.header('Streets with mean traffic flow of 10 km/30min')
+                        st.header('Streets with mean traffic flow > 10 km/30min')
 
                         df = data_reader(path)
                         

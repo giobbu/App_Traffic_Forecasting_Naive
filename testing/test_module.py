@@ -6,8 +6,6 @@ import pandas as pd
 from model.model_module import naive
 
 from util import logging
-import tensorflow as tf
-from testing.util import inverse_transform, evaluation_fct
 
 import streamlit as st
 import altair as alt
