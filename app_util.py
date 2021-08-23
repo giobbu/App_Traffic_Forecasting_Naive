@@ -1,6 +1,6 @@
 
 import folium
-# import geopandas as gpd
+import geopandas as gpd
 import json
 import matplotlib.pyplot as plt
 import streamlit as st
@@ -9,11 +9,11 @@ import pydeck as pdk
 import altair as alt
 import pandas as pd
 
-# def plot_network(file):
-#         df_belgium = gpd.read_file(file)
-#         m = folium.Map([50.85045, 4.34878], zoom_start=9, tiles='cartodbpositron')
-#         folium.GeoJson(df_belgium).add_to(m)
-#         return folium_static(m)
+def plot_network(file):
+        df_belgium = gpd.read_file(file)
+        m = folium.Map([50.85045, 4.34878], zoom_start=9, tiles='cartodbpositron')
+        folium.GeoJson(df_belgium).add_to(m)
+        return folium_static(m)
 
 
 def plot_loss(tr_loss, val_loss):
