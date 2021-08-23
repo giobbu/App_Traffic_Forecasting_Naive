@@ -18,7 +18,7 @@ import time
 import os
 import numpy as np
 import folium
-import geopandas as gpd
+# import geopandas as gpd
 import pandas as pd
 
 
@@ -84,9 +84,9 @@ def main():
                         df = data_reader(path)
                         streets = load_streets(file_streets)
                         
-                        st.header('Highways')
-                        st.text('Folium Visualization')
-                        plot_network(file_streets)
+#                         st.header('Highways')
+#                         st.text('Folium Visualization')
+#                         plot_network(file_streets)
                         
                         st.header('Traffic Data')
                         st.subheader('Raw OBU Data')              
