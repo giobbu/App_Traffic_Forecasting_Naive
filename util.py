@@ -5,7 +5,7 @@ import os
 import yaml
 import logging
 
-import geopandas as gpd
+# import geopandas as gpd
 import streamlit as st
 
 # log messages to a file
