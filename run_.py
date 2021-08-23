@@ -3,7 +3,7 @@
 import yaml
 import pickle
 
-from util import logging, load_streets, set_seed
+from util import logging, set_seed #, load_streets
 from app_util import plot_network, plot_loss, plot_deck
 from app_util import plot_line_alt, plot_hist_alt, create_df_stats, plot_mat_alt, plot_trends, plot_violin_alt, plot_ridge_alt
 
