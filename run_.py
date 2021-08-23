@@ -4,7 +4,7 @@ import yaml
 import pickle
 
 from util import logging, set_seed , load_streets
-from app_util import plot_network, plot_loss, plot_deck
+from app_util import  plot_loss, plot_deck #plot_network,
 from app_util import plot_line_alt, plot_hist_alt, create_df_stats, plot_mat_alt, plot_trends, plot_violin_alt, plot_ridge_alt
 
 from data.data_module import data_reader, feat_engin,  data_loader_naive
