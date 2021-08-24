@@ -5,7 +5,7 @@ channels:
 dependencies:
   - abseil-cpp=20210324.2
   - altair=4.1.0
-  - appnope=0.1.2
+  # - appnope=0.1.2
   - argh=0.26.2
   - argon2-cffi=20.1.0
   - arrow-cpp=5.0.0
@@ -103,7 +103,7 @@ dependencies:
   - libevent=2.1.10
   - libffi=3.3
   - libgdal=3.3.1
-  - libgfortran=5.0.0
+  # - libgfortran=5.0.0
   - libgfortran5=9.3.0
   - libglib=2.68.4
   - libiconv=1.16
