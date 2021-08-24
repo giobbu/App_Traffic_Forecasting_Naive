@@ -1,9 +1,7 @@
 
-# ML packages
-# import yaml
 import pickle
 
-from util import logging, set_seed , load_streets
+from util import logging, load_streets, set_seed
 from app_util import  plot_loss, plot_deck, plot_network
 from app_util import plot_line_alt, plot_hist_alt, create_df_stats, plot_mat_alt, plot_trends, plot_violin_alt, plot_ridge_alt
 
@@ -38,6 +36,7 @@ checkpoint_dir = 'trained_model_dir'
 # with open('config.yaml') as file:
 #         config = yaml.safe_load(file)
 
+seed = 42
 path = 'data/Flow_BEL_street_30min.csv' #config['script_path']
 mean_value = 10 #config['data']['threshold']
 n_feat_time = 4 #config['data']['time_feature']
@@ -51,7 +50,7 @@ def main():
 
         st.set_page_config(page_title="Traffic Forecasting APP")
 
-        set_seed(42)
+        set_seed(seed)
 
         st.markdown("""---""")
         # Space out the maps so the first one is 2x the size of the other three

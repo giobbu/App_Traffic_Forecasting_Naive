@@ -3,7 +3,6 @@ import geopandas as gpd
 import pandas as pd
 import streamlit as st
 import pydeck as pdk
-import yaml
 import altair as alt
 
 
@@ -82,8 +81,8 @@ def plot_multistep_error(time_window, rmse_multi, std_rmse_multi, c, o,  w, h, s
 
 
 
-with open('config.yaml') as file:
-        config = yaml.safe_load(file)
+# with open('config.yaml') as file:
+#         config = yaml.safe_load(file)
 
-path = config['script_path']
+# path = config['script_path']
 

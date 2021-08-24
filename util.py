@@ -19,8 +19,6 @@ def load_streets(file):
 # Reproducability
 def set_seed(seed):
     np.random.seed(seed)
-    tf.random.set_seed(seed)
     os.environ['PYTHONHASHSEED'] = str(seed)
-    os.environ['TF_DETERMINISTIC_OPS'] = '1'
     logging.info("-- set seed")
     
