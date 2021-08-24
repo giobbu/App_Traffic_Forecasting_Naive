@@ -173,7 +173,6 @@ dependencies:
     - flatbuffers==1.12
     - folium==0.12.1
     - gast==0.4.0
-#     - geos=3.9.1
     - geojson==2.5.0
     - gitdb==4.0.7
     - gitpython==3.1.17
