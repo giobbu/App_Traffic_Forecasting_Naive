@@ -1,4 +1,3 @@
-import tensorflow as tf
 from numpy.random import seed
 import numpy as np
 import os 
