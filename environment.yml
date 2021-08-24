@@ -231,4 +231,3 @@ dependencies:
     - smmap==4.0.0
     - streamlit==0.87.0
     - webencodings==0.5.1
-prefix: /anaconda3/envs/streamlit_app
