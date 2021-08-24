@@ -2,7 +2,7 @@ import tensorflow as tf
 from numpy.random import seed
 import numpy as np
 import os 
-import yaml
+# import yaml
 import logging
 
 import geopandas as gpd

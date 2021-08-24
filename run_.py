@@ -1,6 +1,6 @@
 
 # ML packages
-import yaml
+# import yaml
 import pickle
 
 from util import logging, set_seed , load_streets
@@ -35,17 +35,17 @@ file_streets = 'data/Belgium_streets.json'
 checkpoint_dir = 'trained_model_dir'
 
 
-with open('config.yaml') as file:
-        config = yaml.safe_load(file)
+# with open('config.yaml') as file:
+#         config = yaml.safe_load(file)
 
-path = config['script_path']
-mean_value = config['data']['threshold']
-n_feat_time = config['data']['time_feature']
-validation_period = config['data']['validation']
-testing_period = config['data']['testing']
+path = 'data/Flow_BEL_street_30min.csv' #config['script_path']
+mean_value = 10 #config['data']['threshold']
+n_feat_time = 4 #config['data']['time_feature']
+validation_period = 336 #config['data']['validation']
+testing_period = 336 #config['data']['testing']
 
-inp_sqc = config['loader']['input_sqc']
-out_sqc = config['loader']['output_sqc']
+inp_sqc = 12 #config['loader']['input_sqc']
+out_sqc = 12 #config['loader']['output_sqc']
 
 def main():
 
