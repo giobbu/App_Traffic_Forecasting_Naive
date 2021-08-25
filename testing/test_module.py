@@ -22,8 +22,7 @@ def testing(out_sqc, lst, streets, timestamp, X_tr, Y_tr, X_vl, Y_vl, X_ts, Y_ts
     target_plot = []
     rmse_list = []
     mae_list = []
-    mean_rmse = []
-    mean_mae = []
+
 
     
 
@@ -164,7 +163,6 @@ def testing(out_sqc, lst, streets, timestamp, X_tr, Y_tr, X_vl, Y_vl, X_ts, Y_ts
             chart_multi.altair_chart(line_zoom)
             
 
-        #     time.sleep(1)
-            # bar.progress(step)
+            time.sleep(10)
 
     return forecasts, targets, rmse_list, mae_list
