@@ -7,7 +7,7 @@ from util import logging
 import streamlit as st
 import altair as alt
 from testing.util import evaluation_fct
-from testing.app_util import update_layer_deck, initial_layer_deck, plot_multistep_error, plot_line_all
+from testing.app_util import update_layer_deck, plot_multistep_error, plot_line_all
 import pydeck as pdk
 import gc
 
