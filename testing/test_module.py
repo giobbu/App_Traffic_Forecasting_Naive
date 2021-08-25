@@ -27,8 +27,8 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
     st.subheader('Next 30 minutes')
 
 
-    r = initial_layer_deck()
-    map = st.pydeck_chart(r)
+    # r = initial_layer_deck()
+    # map = st.pydeck_chart(r)
 
     st.markdown("""---""")
 
@@ -85,10 +85,10 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
             truth = Y_ts[step]
 
 
-            r = update_layer_deck(lst, streets, pred)
-            r.update()
+            # r = update_layer_deck(lst, streets, pred)
+            # r.update()
 
-            map.pydeck_chart(r)
+            # map.pydeck_chart(r)
                       
             forecasts.append(pred)
             targets.append(truth)
