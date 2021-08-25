@@ -8,7 +8,7 @@ import altair as alt
 
 st.cache(allow_output_mutation=True)
 def initial_layer_deck():
-        INITIAL_VIEW_STATE = pdk.ViewState(latitude=50.85045, longitude=4.34878, zoom=8, max_zoom=8, pitch=45, bearing=0)
+        INITIAL_VIEW_STATE = pdk.ViewState(latitude=50.85045, longitude=4.34878, zoom=8, max_zoom=8, pitch=0, bearing=0)
         r = pdk.Deck(initial_view_state=INITIAL_VIEW_STATE, map_style='mapbox://styles/mapbox/light-v9')
         return r, INITIAL_VIEW_STATE
 
