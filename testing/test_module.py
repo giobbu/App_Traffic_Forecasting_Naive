@@ -86,7 +86,7 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
 
             r = update_layer_deck( lst, streets, pred)
 
-            map.pydeck_chart(r)
+            st.pydeck_chart(r)
                       
             forecasts.append(pred)
             targets.append(truth)
