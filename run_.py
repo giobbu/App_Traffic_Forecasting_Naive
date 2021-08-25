@@ -11,7 +11,7 @@ from data.data_module import  data_loader_naive
 from data.app_util import plot_distribution, plot_gantt, plot_tensor
 from testing.test_module import testing
 
-
+import gc
 import time
 import os
 import conda
@@ -203,7 +203,11 @@ def main():
 
                         X_tr, Y_tr, X_vl, Y_vl, X_ts, Y_ts, timestamp_test = data_loader_naive(df_new.values, inp_sqc, out_sqc, validation_period, testing_period, timestamp)
 
-                        pred, targ, rmse, mae = testing(out_sqc, lst_streets, streets, timestamp_test, X_tr, Y_tr, X_vl, Y_vl, X_ts, Y_ts)#[inp_sqc:]) 
+                        del X_tr, Y_tr, Y_vl
+                        gc.collect()
+                        
+                        testing(out_sqc, lst_streets, streets, timestamp_test, X_vl, X_ts, Y_ts)#[inp_sqc:]) 
+
 
         # logging.info("Finally, I can eat my pizza(s)")
 

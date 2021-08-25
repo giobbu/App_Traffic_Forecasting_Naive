@@ -2,19 +2,17 @@ from altair.vegalite.v4.schema.channels import Opacity, StrokeDash
 import numpy as np
 import time
 import pandas as pd
-
 from model.model_module import naive
-
 from util import logging
-
 import streamlit as st
 import altair as alt
 from testing.util import evaluation_fct
 from testing.app_util import update_layer_deck, initial_layer_deck, plot_multistep_error, plot_line_all
 import pydeck as pdk
+import gc
 
 
-def testing(out_sqc, lst, streets, timestamp, X_tr, Y_tr, X_vl, Y_vl, X_ts, Y_ts):
+def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
 
     logging.info('Testing started')
     forecasts = []
@@ -24,7 +22,6 @@ def testing(out_sqc, lst, streets, timestamp, X_tr, Y_tr, X_vl, Y_vl, X_ts, Y_ts
     mae_list = []
 
 
-    
 
     st.markdown("""---""")
     st.subheader('Next 30 minutes')
@@ -74,7 +71,8 @@ def testing(out_sqc, lst, streets, timestamp, X_tr, Y_tr, X_vl, Y_vl, X_ts, Y_ts
         chart_mae = st.altair_chart(c, use_container_width=True)
             
     X_old = X_vl.copy()
-    X_new = X_ts.copy()       
+    X_new = X_ts.copy()
+       
     
     for step in range(len(Y_ts)):
 
@@ -162,7 +160,11 @@ def testing(out_sqc, lst, streets, timestamp, X_tr, Y_tr, X_vl, Y_vl, X_ts, Y_ts
             chart_all.altair_chart(line_past + line_targ + line_pred)
             chart_multi.altair_chart(line_zoom)
             
+            time.sleep(2)
 
-            time.sleep(10)
-
-    return forecasts, targets, rmse_list, mae_list
+            
+            
+            del recent_rmse_ci, recent_rmse_dot
+            del recent_mae_ci, recent_mae_dot
+            del line_past, line_targ, line_pred, line_zoom
+            gc.collect()
