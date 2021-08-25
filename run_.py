@@ -68,7 +68,7 @@ def main():
                 st.markdown("""---""")
                 
                 st.header('Multi-step and Multivariate Forecasting:')
-                st.write('In the traffic forecasting literature the task of predicting the traffic condition for multiple time horizons and for multiple locations corresponds to problem of multi-step and multivariate forecasting. More references [here](https://link.springer.com/chapter/10.1007/978-3-642-36318-4_3).')
+                st.write('In the literature the task of predicting the traffic condition for multiple time horizons and for multiple locations corresponds to problem of multi-step and multivariate forecasting. More references [here](https://link.springer.com/chapter/10.1007/978-3-642-36318-4_3).')
                 st.header('Naive Model:')
                 st.write('Within a sliding window, observations at the same time and same day in previous week seasons are collected and the mean of those observations is returned as persisted forecast.')
                 st.header('OBU Data:')
