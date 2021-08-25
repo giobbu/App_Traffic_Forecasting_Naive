@@ -6,7 +6,7 @@ import pydeck as pdk
 import altair as alt
 
 
-
+st.cache
 def update_layer_deck(lst, streets, pred):
 
         STREETS = [int(float(s)) for s in lst]
@@ -72,14 +72,4 @@ def plot_multistep_error(time_window, rmse_multi, std_rmse_multi, c, o,  w, h, s
                 error = alt.Chart(df_multi_rmse_std).mark_area(opacity = o,  color=c).encode(x='timestamp:T', y='ymax:Q', y2='ymin:Q').properties(width=w, height=h)
           
         return error, dot_multi_rmse 
-
-
-
-
-
-
-# with open('config.yaml') as file:
-#         config = yaml.safe_load(file)
-
-# path = config['script_path']
 
