@@ -6,11 +6,13 @@ import pydeck as pdk
 import altair as alt
 
 
+st.cache
 def initial_layer_deck():
         INITIAL_VIEW_STATE = pdk.ViewState(latitude=50.85045, longitude=4.34878, zoom=8, max_zoom=8, pitch=45, bearing=0)
         r = pdk.Deck(initial_view_state=INITIAL_VIEW_STATE, map_style='mapbox://styles/mapbox/light-v9')
         return r
 
+st.cache
 def update_layer_deck(lst, streets, pred):
 
         STREETS = [int(float(s)) for s in lst]
@@ -40,7 +42,7 @@ def update_layer_deck(lst, streets, pred):
         return r
 
 
-
+st.cache
 def plot_line_all(time_past, time_window, past, pred, targ,  w, h):
             
             df_all = pd.DataFrame({'timestamp': time_past, 'Past_Obs': past})
@@ -60,7 +62,7 @@ def plot_line_all(time_past, time_window, past, pred, targ,  w, h):
             
             return line_past, line_targ, line_pred,  line_zoom
 
-
+st.cache
 def plot_multistep_error(time_window, rmse_multi, std_rmse_multi, c, o,  w, h, string = None):
 
         if string == 'ErrorBar':
