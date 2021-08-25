@@ -27,6 +27,11 @@ import SessionState
 import pydeck as pdk
 import matplotlib.pyplot as plt
 
+
+os.environ['PROJ_LIB'] = '/anaconda3/envs/streamlit_app/share/proj'
+
+
+
 session_state = SessionState.get(check1=False)
 
 file_streets = 'data/Belgium_streets.json'
