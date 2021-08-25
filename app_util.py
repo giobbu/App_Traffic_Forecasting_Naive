@@ -14,8 +14,6 @@ import pandas as pd
 def plot_network(file):
         df_belgium = gpd.read_file(file)
 
-        st.write(df_belgium.crs)
-
         df_belgium = df_belgium.to_crs({'init': 'epsg:4326'})
         m = folium.Map([50.85045, 4.34878], zoom_start=9, tiles='cartodbpositron')
         folium.GeoJson(df_belgium).add_to(m)
