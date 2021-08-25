@@ -27,7 +27,7 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
     st.subheader('Next 30 minutes')
 
 
-    map = st.empty()
+    
 
 
     st.markdown("""---""")
@@ -72,9 +72,11 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
             
     X_old = X_vl.copy()
     X_new = X_ts.copy()
-       
+
+    map = st.empty()  
     
     for step in range(len(Y_ts)):
+
 
             # naive model
             new_instance = X_new[step]
@@ -86,7 +88,7 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
 
             r = update_layer_deck( lst, streets, pred)
 
-            st.pydeck_chart(r)
+            map.pydeck_chart(r)
                       
             forecasts.append(pred)
             targets.append(truth)
