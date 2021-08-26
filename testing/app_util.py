@@ -5,9 +5,17 @@ import streamlit as st
 import pydeck as pdk
 import altair as alt
 
+st.cache(allow_output_mutation=True)
+def deck(layer):
+        INITIAL_VIEW_STATE = pdk.ViewState(latitude=50.85045, longitude=4.34878, zoom=8, max_zoom=8, pitch=0, bearing=0)
+        r = pdk.Deck(layers=[layer], 
+                         initial_view_state=INITIAL_VIEW_STATE,
+                         map_style='mapbox://styles/mapbox/light-v9',
+                         tooltip={"text": "{flow}"})
+        return r
 
-st.cache
-def update_layer_deck(lst, streets, pred):
+
+def layer_deck(lst, streets, pred):
 
         STREETS = [int(float(s)) for s in lst]
         df = streets[streets.index.isin(STREETS)]
@@ -29,12 +37,9 @@ def update_layer_deck(lst, streets, pred):
                 pickable=True
                 )
 
-        r = pdk.Deck(layers=[geojson], 
-                         initial_view_state=INITIAL_VIEW_STATE,
-                         map_style='mapbox://styles/mapbox/light-v9',
-                         tooltip={"text": "{flow}"})
+        
 
-        return r
+        return geojson
 
 
 st.cache
