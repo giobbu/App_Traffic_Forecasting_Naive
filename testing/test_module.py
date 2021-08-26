@@ -27,7 +27,7 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
     st.subheader('Next 30 minutes')
 
     map = st.empty() 
-    view = set_init_view()
+    
 
     st.markdown("""---""")
 
@@ -86,6 +86,7 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
             truth = Y_ts[step]
 
             map.empty()
+            view = set_init_view()
             layer = layer_deck( lst, streets, pred)
             r = deck(layer, view)
             map.pydeck_chart(r)
@@ -160,10 +161,10 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
             chart_all.altair_chart(line_past + line_targ + line_pred)
             chart_multi.altair_chart(line_zoom)
             
-            time.sleep(10)
+            time.sleep(2)
 
             
-            del layer, r
+            del layer, r, view
             del recent_rmse_ci, recent_rmse_dot
             del recent_mae_ci, recent_mae_dot
             del line_past, line_targ, line_pred, line_zoom
