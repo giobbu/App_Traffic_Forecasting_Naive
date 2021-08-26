@@ -162,7 +162,7 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
             time.sleep(2)
 
             
-            
+            del layer, r
             del recent_rmse_ci, recent_rmse_dot
             del recent_mae_ci, recent_mae_dot
             del line_past, line_targ, line_pred, line_zoom
