@@ -39,8 +39,6 @@ def layer_deck(lst, streets, pred):
                 pickable=True
                 )
 
-        
-
         return geojson
 
 
