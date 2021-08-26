@@ -85,6 +85,7 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
             pred = naive(X_old, 168*2*2*2, out_sqc).astype(np.int32)
             truth = Y_ts[step]
 
+            map.empty()
             layer = layer_deck( lst, streets, pred)
             r = deck(layer, view)
             map.pydeck_chart(r)
@@ -159,7 +160,7 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
             chart_all.altair_chart(line_past + line_targ + line_pred)
             chart_multi.altair_chart(line_zoom)
             
-            time.sleep(2)
+            time.sleep(10)
 
             
             del layer, r
@@ -167,3 +168,5 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
             del recent_mae_ci, recent_mae_dot
             del line_past, line_targ, line_pred, line_zoom
             gc.collect()
+
+            
