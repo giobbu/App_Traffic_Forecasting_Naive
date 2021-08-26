@@ -7,7 +7,7 @@ from util import logging
 import streamlit as st
 import altair as alt
 from testing.util import evaluation_fct
-from testing.app_util import deck, layer_deck, plot_multistep_error, plot_line_all
+from testing.app_util import set_init_view, deck, layer_deck, plot_multistep_error, plot_line_all
 import pydeck as pdk
 import gc
 
@@ -27,8 +27,7 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
     st.subheader('Next 30 minutes')
 
     map = st.empty() 
-
-
+    view = set_init_view()
 
     st.markdown("""---""")
 
@@ -87,7 +86,7 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
             truth = Y_ts[step]
 
             layer = layer_deck( lst, streets, pred)
-            r = deck(layer)
+            r = deck(layer, view)
             map.pydeck_chart(r)
                       
             forecasts.append(pred)
