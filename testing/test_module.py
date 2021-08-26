@@ -27,10 +27,10 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
     st.subheader('Next 30 minutes')
 
     map = st.empty() 
+    view = set_init_view()
     
 
     st.markdown("""---""")
-
     st.subheader('Total Belgian Traffic Flow')
     
     timestamp_t_h = st.empty()
@@ -42,7 +42,7 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
     st.markdown("""---""")
     st.subheader('RMSE and MAE Performance Metrics ')
 
-    st.subheader(' Error For Each Time Horizon Separately  ')
+    # st.subheader(' Error For Each Time Horizon Separately  ')
     st.write(' historic values (red) vs current values (black)')
 
     
@@ -59,15 +59,15 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
 
     col5, col6 = st.beta_columns(2)
 
-    with col5:
-        df_rmse = pd.DataFrame({'timestamp':[],'RMSE': []})
-        c = alt.Chart(df_rmse).mark_line().encode(x ='timestamp:T',y='RMSE',  tooltip=['RMSE']).properties(width=500, height=200)
-        chart_rmse = st.altair_chart(c, use_container_width=True)
+    # with col5:
+    #     df_rmse = pd.DataFrame({'timestamp':[],'RMSE': []})
+    #     c = alt.Chart(df_rmse).mark_line().encode(x ='timestamp:T',y='RMSE',  tooltip=['RMSE']).properties(width=500, height=200)
+    #     chart_rmse = st.altair_chart(c, use_container_width=True)
 
-    with col6:
-        df_mae = pd.DataFrame({'timestamp':[],'MAE': []})
-        c = alt.Chart(df_mae).mark_line().encode(x ='timestamp:T', y='MAE',  tooltip=['MAE']).properties(width=500, height=200)
-        chart_mae = st.altair_chart(c, use_container_width=True)
+    # with col6:
+    #     df_mae = pd.DataFrame({'timestamp':[],'MAE': []})
+    #     c = alt.Chart(df_mae).mark_line().encode(x ='timestamp:T', y='MAE',  tooltip=['MAE']).properties(width=500, height=200)
+    #     chart_mae = st.altair_chart(c, use_container_width=True)
             
     X_old = X_vl.copy()
     X_new = X_ts.copy()
@@ -85,8 +85,6 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
             pred = naive(X_old, 168*2*2*2, out_sqc).astype(np.int32)
             truth = Y_ts[step]
 
-            map.empty()
-            view = set_init_view()
             layer = layer_deck( lst, streets, pred)
             r = deck(layer, view)
             map.pydeck_chart(r)
@@ -139,8 +137,8 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
                 recent_rmse_ci, recent_rmse_dot = plot_multistep_error( time_window, recent_mean_rmse_multi, recent_mean_stdrmse_multi, 'black', 0.8 , 350, 200, 'ErrorBar')
                 chart_errorrmse_multi.altair_chart( rmse_ci + rmse_dot + recent_rmse_ci + recent_rmse_dot, use_container_width=True)
 
-                df_rmse = pd.DataFrame({'timestamp':[timestamp.iloc[step+12]],'RMSE': [mean_rmse]})
-                chart_rmse.add_rows(df_rmse)
+                # df_rmse = pd.DataFrame({'timestamp':[timestamp.iloc[step+12]],'RMSE': [mean_rmse]})
+                # chart_rmse.add_rows(df_rmse)
 
             with col4:
 
@@ -148,8 +146,8 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
                 recent_mae_ci, recent_mae_dot = plot_multistep_error( time_window, recent_mean_mae_multi, recent_mean_stdmae_multi, 'black', 0.8 ,  350, 200, 'ErrorBar')
                 chart_errormae_multi.altair_chart( mae_ci + mae_dot + recent_mae_ci + recent_mae_dot, use_container_width=True)
 
-                df_mae = pd.DataFrame({'timestamp':[timestamp.iloc[step+12]], 'MAE': [maen_mae]})
-                chart_mae.add_rows(df_mae)
+                # df_mae = pd.DataFrame({'timestamp':[timestamp.iloc[step+12]], 'MAE': [maen_mae]})
+                # chart_mae.add_rows(df_mae)
 
 
             time_past = timestamp.iloc[:step+12]
