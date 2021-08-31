@@ -1,4 +1,4 @@
-# App_Traffic_Forecasting
+# App for Naive Traffic Forecasting
 
 ## Build Image from Dockerfile
 
