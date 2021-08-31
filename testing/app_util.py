@@ -7,7 +7,7 @@ import altair as alt
 
 st.cache
 def set_init_view():
-        INITIAL_VIEW_STATE = pdk.ViewState(latitude=50.85045, longitude=4.34878, zoom=8, max_zoom=8, pitch=0, bearing=0)
+        INITIAL_VIEW_STATE = pdk.ViewState(latitude=50.85045, longitude=4.34878, zoom=8, max_zoom=8, pitch=45, bearing=0)
         return INITIAL_VIEW_STATE
 
 

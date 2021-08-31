@@ -2,13 +2,13 @@
 import pickle
 
 from util import logging, load_streets, set_seed
-from app_util import  plot_loss, plot_deck, plot_network
+from app_util import  plot_loss, plot_network
 from app_util import plot_line_alt, plot_hist_alt, create_df_stats, plot_mat_alt, plot_trends, plot_violin_alt, plot_ridge_alt
 
 from data.data_module import data_reader, feat_engin,  data_loader_naive
 from data.data_module import  data_loader_naive
 
-from data.app_util import plot_distribution, plot_gantt, plot_tensor
+from data.app_util import plot_distribution, plot_tensor
 from testing.test_module import testing
 
 import gc
@@ -62,9 +62,9 @@ def main():
 
         st.markdown("""---""")
         # Space out the maps so the first one is 2x the size of the other three
-        with st.beta_container():
+        with st.container():
 
-                col1, col2 = st.beta_columns([20,20])
+                col1, col2 = st.columns([20,20])
                 with col1:
                         st.image('mlg.png', width=250)
                 with col2:
@@ -99,7 +99,7 @@ def main():
                         st.subheader('Raw OBU Data')              
                         st.dataframe(df.head())
 
-                        col0, col1, col2 = st.beta_columns(3)
+                        col0, col1, col2 = st.columns(3)
 
                         with col0:
                                 st.subheader('Temporal')

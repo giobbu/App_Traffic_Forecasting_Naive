@@ -30,24 +30,6 @@ def plot_loss(tr_loss, val_loss):
         return st.pyplot(fig)
 
 
-def plot_deck(streets):
-
-        INITIAL_VIEW_STATE = pdk.ViewState(latitude=50.85045, longitude=4.34878, zoom=9, max_zoom=9, pitch=45, bearing=0)
-        geojson = pdk.Layer(
-        "GeoJsonLayer",
-        streets['geometry'],
-        stroked=False,
-        filled=True,
-        extruded=True,
-        wireframe=True,
-        get_elevation= 10,
-        get_line_color=[255, 255, 255],
-        get_fill_color=[255, 255, 255]
-        )
-
-        r = pdk.Deck(layers=geojson, initial_view_state=INITIAL_VIEW_STATE, map_style='mapbox://styles/mapbox/light-v9')
-        return r
-
 
 def plot_line_alt(df):
         df_plot = pd.DataFrame()

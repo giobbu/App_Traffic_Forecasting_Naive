@@ -46,7 +46,7 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
     st.write(' historic values (red) vs current values (black)')
 
     
-    col3, col4 = st.beta_columns(2)
+    col3, col4 = st.columns(2)
 
     with col3:
             chart_errorrmse_multi = st.empty()           
@@ -57,7 +57,7 @@ def testing(out_sqc, lst, streets, timestamp, X_vl, X_ts, Y_ts):
 
     # st.subheader(' Total Error Over Time  ')
 
-    # col5, col6 = st.beta_columns(2)
+    # col5, col6 = st.columns(2)
 
     # with col5:
     #     df_rmse = pd.DataFrame({'timestamp':[],'RMSE': []})
